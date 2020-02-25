@@ -1,13 +1,13 @@
 import Coord from "./Coord"
 
 export default class AtomicCell{
-	location: Coord
-	open: Boolean
-	constructor(x: number, y: number){
-		this.location = new Coord(x, y)
-	}
+  location: Coord
+  open: Boolean
+  constructor(startLocation: Coord){
+    this.location = startLocation
+  }
 
-	isOpen(): Boolean {
-		return this.open
-	}
+  isOpen(): Boolean {
+    return this.open
+  }
 }

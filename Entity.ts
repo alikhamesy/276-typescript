@@ -1,10 +1,11 @@
 import AtomicCell from './AtomicCell'
 import HitBox from './HitBox'
+import Coord from './Coord'
 
 export default class Entity extends AtomicCell {
   hitBox: HitBox
-  constructor(x: number, y: number, hitBox: HitBox){
-    super(x, y)
+  constructor(startLocation: Coord, hitBox: HitBox){
+    super(startLocation)
     this.hitBox = hitBox
   }
 }
