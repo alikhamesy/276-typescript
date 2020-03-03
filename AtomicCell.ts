@@ -1,10 +1,12 @@
-import Coord from "./Coord"
+import { Position } from "./Vector"
 
 export default class AtomicCell{
-  location: Coord
+  position: Position
   open: Boolean
-  constructor(startLocation: Coord){
-    this.location = startLocation
+
+  constructor(x: number, y: number, passable: boolean){
+    this.position = new Position(x, y)
+    this.open = passable
   }
 
   isOpen(): Boolean {

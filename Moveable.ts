@@ -1,7 +1,4 @@
-import DirectionVector from "./Direction";
-
 export default interface Moveable {
-  isMoving: boolean;
-  moveDirection: DirectionVector;
+  isMoving: boolean
   update(): void
 }

@@ -1,11 +1,11 @@
 import AtomicCell from './AtomicCell'
-import HitBox from './HitBox'
-import Coord from './Coord'
+import World from './World'
 
-export default class Entity extends AtomicCell {
-  hitBox: HitBox
-  constructor(startLocation: Coord, hitBox: HitBox){
-    super(startLocation)
-    this.hitBox = hitBox
+export default abstract class Entity extends AtomicCell {
+  world: World
+  constructor(x: number, y: number, world: World){
+    super(x, y, true)
+    this.world = world
   }
+  abstract onCollision(Entity): void
 }
