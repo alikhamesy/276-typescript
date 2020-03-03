@@ -48,13 +48,16 @@ export default class World{
   calculateScore(): number{
     return this.player.score / this.time
   }
-  requestMove(entity: Entity, x: number, y: number){
+  requestMove(entity: Entity, x: number, y: number): boolean{
+    let collided = false
     this.entities.forEach(e => {
       if(e != entity && e.position === entity.position){
         e.onCollision(entity);
         entity.onCollision(e);
+        collided = true
       }
     })
+    return collided
   }
   delete(entity: Entity): void{
     this.entities.forEach((e, i) => {

@@ -8,9 +8,8 @@ export default class Vector{
     this.y = y
   }
 
-  add(v: Vector): void{
-    this.x += v.x
-    this.y += v.x
+  static add(u: Vector, v: Vector): Vector{
+    return new Vector(u.x + v.x, u.y + v.y)
   }
 }
 

@@ -2,7 +2,7 @@ import Moveable from './Moveable'
 import { Directions } from './Enums'
 import Entity from './Entity'
 import { moveKeys } from './settings'
-import { Direction } from './Vector'
+import Vector, { Direction } from './Vector'
 import Enemy from './Enemy'
 
 export default class Player extends Entity implements Moveable{
@@ -29,6 +29,7 @@ export default class Player extends Entity implements Moveable{
     }
   }
   update(): void{
-    if(this.isMoving) this.position.add(new Direction(this.heading));
+    let newLocation: Vector = Vector.add(this.position, new Direction(this.heading))
+    this.position = this.world.requestMove(this, newLocation.x, newLocation.y) && this.isMoving ? newLocation : this.position
   }
 }
